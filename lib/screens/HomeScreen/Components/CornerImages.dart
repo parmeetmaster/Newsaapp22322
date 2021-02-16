@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:model_architecture/constantPackage/constColors.dart';
 import 'package:model_architecture/model/DetailScreenModel.dart';
-import '../../DetailScreen/DetailScreen.dart';
+
 import 'package:model_architecture/utils/uuidUtils.dart';
 
 class RoundedCornerImages extends StatelessWidget {

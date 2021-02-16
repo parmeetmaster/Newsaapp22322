@@ -8,6 +8,7 @@ import 'package:flutter_package_plugin1/flutter_package_plugin1.dart';
 import 'package:model_architecture/api/SampleCall.dart';
 import 'package:model_architecture/constantPackage/language/languageEn.dart';
 import 'package:model_architecture/providers/LoginProvider.dart';
+import 'package:model_architecture/providers/PostProvider.dart';
 import 'package:model_architecture/providers/SampleProvider.dart';
 import 'package:model_architecture/screens/ImagePickerScreen/imagepicker.dart';
 import 'package:model_architecture/utils/Globals.dart';
@@ -15,12 +16,11 @@ import 'file:///D:/git%20main/flutter-modules/model_architecture/lib/api/api_ser
 import 'package:model_architecture/utils/languageDeligate.dart';
 import 'package:path/path.dart';
 import 'package:provider/provider.dart';
-
-import 'providers/DetailsScreenProvider.dart';
-import 'providers/SearchScreenProvider.dart';
-import 'screens/DetailScreen/DetailScreen.dart';
+import 'providers/SearchProvider.dart';
 import 'screens/HomeScreen/HomeScreen.dart';
 import 'screens/Login/login.dart';
+import 'screens/PostCreateScreen/PostCreateScreen.dart';
+import 'screens/PostScreen/PostScren.dart';
 import 'screens/SearchScreen/SearchScreen.dart';
 import 'utils/preference.dart';
 
@@ -39,7 +39,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (ctx) => SampleProvider()),
-        ChangeNotifierProvider(create: (ctx) => DetailScreenProvider()),
+        ChangeNotifierProvider(create: (ctx) => PostProvider()),
         ChangeNotifierProvider(create: (ctx) => LoginProvider()),
         ChangeNotifierProvider(create: (ctx) => SearchScreenProvider()),
       ],
@@ -54,13 +54,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      initialRoute: '/',
+      initialRoute: '/PostCreateScreen',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => HomeScreen(),
         // When navigating to the "/second" route, build the SecondScreen widget.
-        '/second': (context) => DetailScreen(),
         '/SearchScreen': (context) => SearchScreen(),
+        '/post':(context)=>PostScreen(),
+        '/PostCreateScreen':(context)=>PostCreateScreen(),
       },
       theme: ThemeData(
         // This is the theme of your application.

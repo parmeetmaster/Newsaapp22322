@@ -2,7 +2,7 @@ import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:model_architecture/constantPackage/constColors.dart';
 import 'package:model_architecture/constantPackage/language/words.dart';
-import 'package:model_architecture/providers/SearchScreenProvider.dart';
+import 'package:model_architecture/providers/SearchProvider.dart';
 import 'package:model_architecture/screens/HomeScreen/Components/PostContainer.dart';
 import 'package:model_architecture/utils/languageDeligate.dart';
 import 'package:provider/provider.dart';
@@ -114,6 +114,7 @@ class _SearchScreenState extends State<SearchScreen> {
                  Padding(
                    padding: EdgeInsets.all(5),
                    child: TextField(
+                     controller: value.searchinputController,
                     decoration: new InputDecoration(
                         contentPadding: EdgeInsets.only(top:5,bottom:5),
                         prefixIcon: Icon(Icons.search),
@@ -140,7 +141,7 @@ class _SearchScreenState extends State<SearchScreen> {
                      width:MediaQuery.of(context).size.width*0.88/2,
                        child: DropdownButton(
                          hint: _dropDownValue == null
-                             ? Text('Set Department')
+                             ? Text('${value.department}')
                              : Text(
                            _dropDownValue,
                            style: TextStyle(color: Colors.blue),
@@ -148,7 +149,7 @@ class _SearchScreenState extends State<SearchScreen> {
                          isExpanded: true,
                          iconSize: 30.0,
                          style: TextStyle(color: Colors.blue),
-                         items: ['One', 'Two', 'Three'].map(
+                         items: value.getListOfDepartments().map(
                                (val) {
                              return DropdownMenuItem<String>(
                                value: val,
@@ -171,7 +172,7 @@ class _SearchScreenState extends State<SearchScreen> {
                        width:MediaQuery.of(context).size.width*0.88/2,
                        child: DropdownButton(
                          hint: _dropDownValue == null
-                             ? Text('Set Office')
+                             ? Text('${value.office}')
                              : Text(
                            _dropDownValue,
                            style: TextStyle(color: Colors.blue),
@@ -179,7 +180,7 @@ class _SearchScreenState extends State<SearchScreen> {
                          isExpanded: true,
                          iconSize: 30.0,
                          style: TextStyle(color: Colors.blue),
-                         items: ['One', 'Two', 'Three'].map(
+                         items:value.getListOfOffice().map(
                                (val) {
                              return DropdownMenuItem<String>(
                                value: val,
@@ -187,13 +188,7 @@ class _SearchScreenState extends State<SearchScreen> {
                              );
                            },
                          ).toList(),
-                         onChanged: (val) {
-                           setState(
-                                 () {
-                               // _dropDownValue = val;
-                             },
-                           );
-                         },
+                         onChanged:value.setOffice,
                        ),
                      )
                    ],
@@ -227,10 +222,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     }*/
                             return true;
                           },
-                          onChanged: (val){
-                            print("onChanged${val}")
-                            ;
-                          },
+                          onChanged:value.setFromDate,
                           validator: (val){
                             print("validator${val}")
                             ;
@@ -270,10 +262,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     }*/
                             return true;
                           },
-                          onChanged: (val){
-                            print("onChanged${val}")
-                            ;
-                          },
+                          onChanged:value.setToDate,
                           validator: (val){
                             print("validator${val}")
                             ;
@@ -296,7 +285,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     borderRadius: BorderRadius.circular(40),
                     child: RaisedButton(
                       color: Colors.blue,
-                      onPressed: () {},
+                      onPressed: value.onSubmit,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
