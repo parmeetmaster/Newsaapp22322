@@ -6,7 +6,7 @@ import 'package:model_architecture/constantPackage/language/words.dart';
 import 'package:model_architecture/providers/SampleProvider.dart';
 import 'package:model_architecture/screens/HomeScreen/Components/CatagoryButton.dart';
 import 'package:model_architecture/screens/SearchScreen/SearchScreen.dart';
-import 'package:model_architecture/utils/Globals.dart';
+import 'file:///D:/Practice%20folder/News%20App/lib/Globals/Globals.dart';
 import 'package:model_architecture/utils/languageDeligate.dart';
 import 'package:provider/provider.dart';
 

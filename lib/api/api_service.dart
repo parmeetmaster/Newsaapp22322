@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import '../constantPackage/constStrings.dart';
-import '../utils/Globals.dart';
+import '../Globals/Globals.dart';
 import '../utils/app_logger.dart';
 import '../utils/preference.dart';
 
@@ -44,7 +44,7 @@ class ApiService {
   static Dio dioservice=null;
 static final logInterceptor=LogInterceptors();
 BaseOptions baseOptions;
-ApiService({ this.baseOptions}){
+     ApiService({ this.baseOptions}){
 
   dioservice = Dio();
   dioservice.interceptors.add(logInterceptor); // adding Logging for error and track request and responses
@@ -56,10 +56,12 @@ ApiService({ this.baseOptions}){
      if(baseOptions!=null){
        dioservice.options = baseOptions;
      }else{
+
        dioservice.options = new BaseOptions(
-         baseUrl: Globals.baseurl,
+         baseUrl: baseurl,
          connectTimeout: 10000,
          receiveTimeout: 10000,);
+
      }
      return dioservice;
     }

@@ -5,17 +5,18 @@ import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_package_plugin1/flutter_package_plugin1.dart';
-import 'package:model_architecture/api/SampleCall.dart';
+import 'package:model_architecture/api/Api.dart';
 import 'package:model_architecture/constantPackage/language/languageEn.dart';
 import 'package:model_architecture/providers/LoginProvider.dart';
 import 'package:model_architecture/providers/PostProvider.dart';
 import 'package:model_architecture/providers/SampleProvider.dart';
 import 'package:model_architecture/screens/ImagePickerScreen/imagepicker.dart';
-import 'package:model_architecture/utils/Globals.dart';
+import 'file:///D:/Practice%20folder/News%20App/lib/Globals/Globals.dart';
 import 'file:///D:/git%20main/flutter-modules/model_architecture/lib/api/api_service.dart';
 import 'package:model_architecture/utils/languageDeligate.dart';
 import 'package:path/path.dart';
 import 'package:provider/provider.dart';
+import 'providers/PostCreateProvider.dart';
 import 'providers/SearchProvider.dart';
 import 'screens/HomeScreen/HomeScreen.dart';
 import 'screens/Login/login.dart';
@@ -35,11 +36,15 @@ void main() async {
   if (isPrimaryLanguageset() ==  false) {
   } else {}
   Globals.primaryLanguage = await getPrimaryLanguage();
+   Response resp= await Api().uploadGeneralPost("प्रेम \n क्या है", "प्रेम\n क्या है",["asd","nrrnoc0"],"2");
+print(resp.data);
+
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (ctx) => SampleProvider()),
         ChangeNotifierProvider(create: (ctx) => PostProvider()),
+        ChangeNotifierProvider(create: (ctx) => PostCreateProvider()),
         ChangeNotifierProvider(create: (ctx) => LoginProvider()),
         ChangeNotifierProvider(create: (ctx) => SearchScreenProvider()),
       ],

@@ -62,7 +62,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: _getAppBar(),
 
-    body:SingleChildScrollView(child: Column(
+       body:SingleChildScrollView(child: Column(
     children: [
       PostContainer(heading: "ग्रेटा थनबर्ग टूलकिट केस : 5 दिन के पुलिस रिमांड में दिशा, पुलिस बोली- खालिस्तानी ग्रुप जिंदा करने की थी साजिश",description: "नई दिल्ली: ग्रेटा थनबर्ग टूलकिट मामले में बेंगलुरु से गिरफ्तार की गईं क्लाइमेट एक्टिविस्ट दिशा रवि को दिल्ली पुलिस ने रविवार को दिल्ली के पटियाला हाउस कोर्ट में पेश किया गया है, जहां पर पुलिस को दिशा की पांच दिनों की रिमांड मिली है. हालांकि, जानकारी है कि पुलिस ने कोर्ट से सात दिनों की रिमांड मांगी थी.",),
       PostContainer(heading: "2ग्रेटा थनबर्ग टूलकिट केस : 5 दिन के पुलिस रिमांड में दिशा, पुलिस बोली- खालिस्तानी ग्रुप जिंदा करने की थी साजिश",description: "नई दिल्ली: ग्रेटा थनबर्ग टूलकिट मामले में बेंगलुरु से गिरफ्तार की गईं क्लाइमेट एक्टिविस्ट दिशा रवि को दिल्ली पुलिस ने रविवार को दिल्ली के पटियाला हाउस कोर्ट में पेश किया गया है, जहां पर पुलिस को दिशा की पांच दिनों की रिमांड मिली है. हालांकि, जानकारी है कि पुलिस ने कोर्ट से सात दिनों की रिमांड मांगी थी.",),
@@ -138,7 +138,7 @@ class _SearchScreenState extends State<SearchScreen> {
                    mainAxisAlignment: MainAxisAlignment.start,
                    children: [
                      Container(
-                     width:MediaQuery.of(context).size.width*0.88/2,
+                     width:MediaQuery.of(context).size.width*0.88,
                        child: DropdownButton(
                          hint: _dropDownValue == null
                              ? Text('${value.department}')
@@ -168,7 +168,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
                      ),
                          )),
-                     Container(
+                    /* Container(
                        width:MediaQuery.of(context).size.width*0.88/2,
                        child: DropdownButton(
                          hint: _dropDownValue == null
@@ -190,7 +190,7 @@ class _SearchScreenState extends State<SearchScreen> {
                          ).toList(),
                          onChanged:value.setOffice,
                        ),
-                     )
+                     )*/
                    ],
                  ),
 
