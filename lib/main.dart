@@ -1,6 +1,10 @@
+import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:auto_route/auto_route_annotations.dart';
+import 'package:charset_converter/charset_converter.dart';
+import 'package:convert/convert.dart';
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -36,8 +40,17 @@ void main() async {
   if (isPrimaryLanguageset() ==  false) {
   } else {}
   Globals.primaryLanguage = await getPrimaryLanguage();
-   Response resp= await Api().uploadGeneralPost("प्रेम \n क्या है", "प्रेम\n क्या है",["asd","nrrnoc0"],"2");
-print(resp.data);
+/*   Response resp=await Api().searchPost("32");
+  print(resp.data);*/
+
+  String m= utf8.encode("क्या है").toString();
+     m=m.replaceAll("[","").replaceAll("]","");
+  List <String> lstring = m.split(",");
+
+  List <int> lint = lstring.map(int.parse).toList();
+  print(lint);
+   m= utf8.decode(lint);
+  print(m);
 
   runApp(
     MultiProvider(
@@ -67,6 +80,7 @@ class MyApp extends StatelessWidget {
         '/SearchScreen': (context) => SearchScreen(),
         '/post':(context)=>PostScreen(),
         '/PostCreateScreen':(context)=>PostCreateScreen(),
+        '/custom':(context)=>CustomFilePicker()
       },
       theme: ThemeData(
         // This is the theme of your application.
@@ -106,23 +120,12 @@ class _CustomFilePicker extends State<CustomFilePicker>{
 
     if(result != null) {
       selectedfile = File(result.files.single.path);
+      uploadFile();
     } else {
       // User canceled the picker
     }
 
 
-    //for file_pocker plugin version 2 or 2+
-    /*
-    FilePickerResult result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['jpg', 'pdf', 'mp4'],
-      //allowed extension to choose
-    );
-
-    if (result != null) {
-      //if there is selected file
-      selectedfile = File(result.files.single.path);
-    } */
 
     setState((){}); //update the UI so that file name is shown
   }

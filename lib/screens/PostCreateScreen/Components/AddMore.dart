@@ -2,6 +2,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:model_architecture/providers/PostCreateProvider.dart';
+import 'package:provider/provider.dart';
 
 
 class Addmore extends StatefulWidget {
@@ -12,9 +14,17 @@ class Addmore extends StatefulWidget {
 class _AddmoreState extends State<Addmore> {
   @override
   Widget build(BuildContext context) {
-    return Container(color:Colors.grey[300]
-    ,height:70,width:70,
-      child:Center(child: Text("+"))
+    final provider=Provider.of<PostCreateProvider>(context);
+    return InkWell(
+      onTap: (){
+        provider.pickupFile();
+
+      },
+      child: Container(color:Colors.grey[300]
+      ,height:70,width:70,
+        margin: EdgeInsets.only(top:10,left:10),
+        child:Center(child: Text("+"))
+      ),
     );
   }
 }

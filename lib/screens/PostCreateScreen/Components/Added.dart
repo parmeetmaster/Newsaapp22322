@@ -14,6 +14,7 @@ class _AddedState extends State<Added> {
   Widget build(BuildContext context) {
     return Container(color:Colors.grey[300]
     ,height:70,width:70,
+      margin: EdgeInsets.only(left: 10,top:10),
       child:Center(child: Icon(Icons.check,color: Colors.green,))
     );
   }

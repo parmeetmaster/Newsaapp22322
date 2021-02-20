@@ -40,9 +40,12 @@ dependencies:
 
   #update as per need
   shared_preferences:
+  percent_indicator: "^2.1.7+2"
   image_picker: ^0.6.7+22
+  convert: ^2.1.1
   provider: ^4.3.3
   uuid: 2.2.2
+  charset_converter: ^1.0.3
   carousel_slider: ^3.0.0
   dots_indicator: ^1.2.0
   change_app_package_name: ^0.1.2
