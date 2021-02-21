@@ -38,13 +38,6 @@ bool isloaded=false;
    notifyListeners();
 
     }
-/*
-    String dd=ls[1]["attachments"];
-
-    UploadFileDetailModel m=  UploadFileDetailModel.fromJson(jsonDecode(dd));
-    print("first is${m.attachments[0]}");
-
-    */
   }
 
 UploadFileDetailModel parseString(String attachmentString ){

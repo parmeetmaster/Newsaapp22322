@@ -64,5 +64,27 @@ Future<Response>  requestSamplePost(String name,String email,String password,Str
   }
 
 
+  Future<Response>  searchGeneralPost(
+      {String searchwords,
+      String fromdate,
+      String todate,
+      int department}) async {
+    // var map={"postimage":"dasd","data":attachment};
+
+    var formData= FormData.fromMap({
+      "searchwords": searchwords,
+      "fromdate":fromdate,
+      "todate": todate,
+      "department":department,
+    });
+
+
+
+    return dio.post("/search.php",data:await formData);
+  }
+
+
+
+
 
 }

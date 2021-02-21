@@ -59,14 +59,21 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final provider=Provider.of<SearchScreenProvider>(context);
+    provider.setContext(context);
     return Scaffold(
       appBar: _getAppBar(),
 
-       body:SingleChildScrollView(child: Column(
-    children: [
+       body:Consumer<SearchScreenProvider>(
 
-    ],
-    )));
+         builder: (context, value,child) {
+
+
+           return SingleChildScrollView(child: Column(
+    children:value.postWidgets ,
+    ));
+         }
+       ));
 
   }
 
@@ -149,29 +156,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
                      ),
                          )),
-                    /* Container(
-                       width:MediaQuery.of(context).size.width*0.88/2,
-                       child: DropdownButton(
-                         hint: _dropDownValue == null
-                             ? Text('${value.office}')
-                             : Text(
-                           _dropDownValue,
-                           style: TextStyle(color: Colors.blue),
-                         ),
-                         isExpanded: true,
-                         iconSize: 30.0,
-                         style: TextStyle(color: Colors.blue),
-                         items:value.getListOfOffice().map(
-                               (val) {
-                             return DropdownMenuItem<String>(
-                               value: val,
-                               child: Text(val),
-                             );
-                           },
-                         ).toList(),
-                         onChanged:value.setOffice,
-                       ),
-                     )*/
+
                    ],
                  ),
 
@@ -185,7 +170,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       Container(
                         height:60,
                         width:MediaQuery.of(context).size.width*0.88/2,
-                        child:             DateTimePicker(
+                        child: new DateTimePicker(
                           type: DateTimePickerType.date,
                           dateMask: 'dd-MM-yyyy',
                           controller: _controller1,
@@ -225,10 +210,10 @@ class _SearchScreenState extends State<SearchScreen> {
                       Container(
                         width:MediaQuery.of(context).size.width*0.88/2,
                         height: 60,
-                        child:  DateTimePicker(
+                        child:  new DateTimePicker(
                           type: DateTimePickerType.date,
                           dateMask: 'dd-MM-yyyy',
-                          controller: _controller1,
+                          controller: _controller2,
                           //initialValue: _initialValue,
                           firstDate: DateTime(2018),
                           lastDate: DateTime(2022),
