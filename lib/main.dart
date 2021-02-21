@@ -16,6 +16,7 @@ import 'package:model_architecture/providers/LoginProvider.dart';
 import 'package:model_architecture/providers/PostProvider.dart';
 import 'package:model_architecture/providers/SampleProvider.dart';
 import 'package:model_architecture/screens/ImagePickerScreen/imagepicker.dart';
+import 'package:model_architecture/screens/signup.dart';
 import 'file:///D:/Practice%20folder/News%20App/lib/Globals/Globals.dart';
 import 'file:///D:/git%20main/flutter-modules/model_architecture/lib/api/api_service.dart';
 import 'package:model_architecture/utils/languageDeligate.dart';
@@ -29,6 +30,8 @@ import 'screens/Login/login.dart';
 import 'screens/PostCreateScreen/PostCreateScreen.dart';
 import 'screens/PostScreen/PostScren.dart';
 import 'screens/SearchScreen/SearchScreen.dart';
+import 'screens/signin.dart';
+import 'screens/splashscreen.dart';
 import 'utils/preference.dart';
 
 // need to add async
@@ -82,7 +85,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      initialRoute: '/',
+      initialRoute: '/SignInPage',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => HomeScreen(),
@@ -90,7 +93,11 @@ class MyApp extends StatelessWidget {
         '/SearchScreen': (context) => SearchScreen(),
         '/post':(context)=>PostScreen(),
         '/PostCreateScreen':(context)=>PostCreateScreen(),
-        '/custom':(context)=>CustomFilePicker()
+        '/SignInPage':(context)=>SignInPage(),
+        '/SignUpScreen':(context)=>SignUpScreen(),
+         '/SignUpScreen':(context)=>SignUpScreen(),
+
+        '/SplashScreen':(context)=>SplashScreen()
       },
       theme: ThemeData(
         // This is the theme of your application.

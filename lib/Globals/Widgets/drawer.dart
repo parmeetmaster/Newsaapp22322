@@ -33,7 +33,7 @@ class _GlobalDrawerState extends State<GlobalDrawer> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.home), title: Text("Create New Post"),
+            leading: Icon(Icons.note_add), title: Text("Create New Post"),
             onTap: () {
              Navigator.pushNamed(context, '/PostCreateScreen');
             },
@@ -44,6 +44,13 @@ class _GlobalDrawerState extends State<GlobalDrawer> {
               Navigator.pop(context);
             },
           ),
+          ListTile(
+            leading: Icon(Icons.person), title: Text("Login"),
+            onTap: () {
+              Navigator.pushNamed(context, '/LoginScreen');
+            },
+          ),
+
           ListTile(
             leading: Icon(Icons.contacts), title: Text("Contact Us"),
             onTap: () {
