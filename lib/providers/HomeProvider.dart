@@ -29,6 +29,8 @@ bool isloaded=false;
          for  (var i=0;i<ls.length;i++){
       print(PostFromServer.fromJson(ls[i]).attachments);
       String attachmentString=PostFromServer.fromJson(ls[i]).attachments;
+
+
       UploadFileDetailModel attachmentmodel=parseString(attachmentString);
       postWidgets.add(PostContainer(model:PostFromServer.fromJson(ls[i]),attachmentmodel:attachmentmodel ,));
 
@@ -43,9 +45,20 @@ bool isloaded=false;
 UploadFileDetailModel parseString(String attachmentString ){
       print(attachmentString);
 
-      UploadFileDetailModel m=  UploadFileDetailModel.fromJson(jsonDecode(attachmentString));
-      print("first is${m.attachments[0]}");
-      return m;
+
+
+      try{
+        UploadFileDetailModel m=  UploadFileDetailModel.fromJson(jsonDecode(attachmentString));
+        print("first is${m.attachments[0]}");
+        return m;
+      }catch(e){
+        return null;
+
+      }
+
+
+
+
 }
 
 

@@ -33,6 +33,12 @@ class _GlobalDrawerState extends State<GlobalDrawer> {
             },
           ),
           ListTile(
+            leading: Icon(Icons.home), title: Text("Create New Post"),
+            onTap: () {
+             Navigator.pushNamed(context, '/PostCreateScreen');
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.settings), title: Text("Settings"),
             onTap: () {
               Navigator.pop(context);
