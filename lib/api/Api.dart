@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:model_architecture/api/api_service.dart';
 import 'package:model_architecture/constantPackage/constStrings.dart';
+import 'package:model_architecture/model/file_placeholder.dart';
+import 'package:model_architecture/model/uploadFileDetailsModel.dart';
 import 'package:path/path.dart';
 
 class Api{
@@ -34,12 +36,12 @@ Future<Response>  requestSamplePost(String name,String email,String password,Str
     var decoded = utf8.decode(encoded);
     print(decoded);
 
-    var map={"postimage":"dasd","data":attachment};
+   // var map={"postimage":"dasd","data":attachment};
 
     var formData= FormData.fromMap({
       "title": title,
       "description":description,
-      "attachments": jsonEncode(map),
+      "attachments": jsonEncode(attachment),
       "cdescription":utf8.encode(description).toString(),
       "ctitle": utf8.encode(title).toString(),
       "authcode": authcode,
@@ -47,11 +49,18 @@ Future<Response>  requestSamplePost(String name,String email,String password,Str
     });
 
 
+
     return dio.post("/uploadgeneral.php",data:await formData);
   }
 
   Future<Response> searchPost(String sno) async {
     return dio.post("/search.php",);
+  }
+
+  Future<Response>  getGeneralPost(String sno) async {
+
+
+    return dio.post("/generalpost.php");
   }
 
 

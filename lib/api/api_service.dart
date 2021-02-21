@@ -59,8 +59,8 @@ BaseOptions baseOptions;
 
        dioservice.options = new BaseOptions(
          baseUrl: baseurl,
-         connectTimeout: 10000,
-         receiveTimeout: 10000,);
+         connectTimeout: 300000,
+         receiveTimeout: 300000,);
 
      }
      return dioservice;

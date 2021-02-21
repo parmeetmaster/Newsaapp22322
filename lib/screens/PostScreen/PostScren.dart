@@ -1,15 +1,22 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:model_architecture/model/postcarrier.dart';
+import 'package:model_architecture/utils/Utf8convertUtils.dart';
 
 class PostScreen extends StatefulWidget {
   @override
   _PostScreenState createState() => _PostScreenState();
+
+
 }
 
 class _PostScreenState extends State<PostScreen> {
   @override
   Widget build(BuildContext context) {
+    final PostCarrier args = ModalRoute.of(context).settings.arguments;
+
+
     return Scaffold(
         appBar:AppBar(),
          body:Container(
@@ -19,16 +26,16 @@ class _PostScreenState extends State<PostScreen> {
                children: [
                ClipRRect(
                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
-                 child: Image.network("https://images01.nicepage.io/page/85/79/wordpress-template-preview-85793.jpg",
+                 child: Image.network(args.attachmentmodel.post,
                    fit: BoxFit.cover,
                  ),
                ),
 
                Padding(padding: EdgeInsets.symmetric(horizontal: 10,vertical:10),
-               child:Text("Heading",style:TextStyle(color: Colors.black,fontSize: 30)),
+               child:Text("${UtfConvertUtils().convert(args.model.cypherTitle)}",style:TextStyle(color: Colors.black,fontSize: 30)),
                ),
                  Padding(padding: EdgeInsets.symmetric(horizontal: 10,vertical:10),
-                   child:Text("कुलदीप यादव ने इंग्लैंड को सातवां झटका दिया है. उन्होंने विकेटकीपर बल्लेबाज बेन फोक्स को आउट किया है. 116 रन पर इंग्लैंड को सातवां झटका लगा है. फोक्स 2 रन बनाकर आउट हुए. कुलदीप का मैच में ये पहला विकेट है. भारत जीत से तीन विकेट दूर है. विकेट गिरने के साथ ही लंच ब्रेक हो गया है.\n कुलदीप यादव ने इंग्लैंड को सातवां झटका दिया है. उन्होंने विकेटकीपर बल्लेबाज बेन फोक्स को आउट किया है. 116 रन पर इंग्लैंड को सातवां झटका लगा है. फोक्स 2 रन बनाकर आउट हुए. कुलदीप का मैच में ये पहला विकेट है. भारत जीत से तीन विकेट दूर है. विकेट गिरने के साथ ही लंच ब्रेक हो गया है. कुलदीप यादव ने इंग्लैंड को सातवां झटका दिया है. उन्होंने विकेटकीपर बल्लेबाज बेन फोक्स को आउट किया है. 116 रन पर इंग्लैंड को सातवां झटका लगा है. फोक्स 2 रन बनाकर आउट हुए. कुलदीप का मैच में ये पहला विकेट है. भारत जीत से तीन विकेट दूर है. विकेट गिरने के साथ ही लंच ब्रेक हो गया है. कुलदीप यादव ने इंग्लैंड को सातवां झटका दिया है. उन्होंने विकेटकीपर बल्लेबाज बेन फोक्स को आउट किया है. 116 रन पर इंग्लैंड को सातवां झटका लगा है. फोक्स 2 रन बनाकर आउट हुए. कुलदीप का मैच में ये पहला विकेट है. भारत जीत से तीन विकेट दूर है. विकेट गिरने के साथ ही लंच ब्रेक हो गया है. कुलदीप यादव ने इंग्लैंड को सातवां झटका दिया है. उन्होंने विकेटकीपर बल्लेबाज बेन फोक्स को आउट किया है. 116 रन पर इंग्लैंड को सातवां झटका लगा है. फोक्स 2 रन बनाकर आउट हुए. कुलदीप का मैच में ये पहला विकेट है. भारत जीत से तीन विकेट दूर है. विकेट गिरने के साथ ही लंच ब्रेक हो गया है. कुलदीप यादव ने इंग्लैंड को सातवां झटका दिया है. उन्होंने विकेटकीपर बल्लेबाज बेन फोक्स को आउट किया है. 116 रन पर इंग्लैंड को सातवां झटका लगा है. फोक्स 2 रन बनाकर आउट हुए. कुलदीप का मैच में ये पहला विकेट है. भारत जीत से तीन विकेट दूर है. विकेट गिरने के साथ ही लंच ब्रेक हो गया है. कुलदीप यादव ने इंग्लैंड को सातवां झटका दिया है. उन्होंने विकेटकीपर बल्लेबाज बेन फोक्स को आउट किया है. 116 रन पर इंग्लैंड को सातवां झटका लगा है. फोक्स 2 रन बनाकर आउट हुए. कुलदीप का मैच में ये पहला विकेट है. भारत जीत से तीन विकेट दूर है. विकेट गिरने के साथ ही लंच ब्रेक हो गया है. कुलदीप यादव ने इंग्लैंड को सातवां झटका दिया है. उन्होंने विकेटकीपर बल्लेबाज बेन फोक्स को आउट किया है. 116 रन पर इंग्लैंड को सातवां झटका लगा है. फोक्स 2 रन बनाकर आउट हुए. कुलदीप का मैच में ये पहला विकेट है. भारत जीत से तीन विकेट दूर है. विकेट गिरने के साथ ही लंच ब्रेक हो गया है. कुलदीप यादव ने इंग्लैंड को सातवां झटका दिया है. उन्होंने विकेटकीपर बल्लेबाज बेन फोक्स को आउट किया है. 116 रन पर इंग्लैंड को सातवां झटका लगा है. फोक्स 2 रन बनाकर आउट हुए. कुलदीप का मैच में ये पहला विकेट है. भारत जीत से तीन विकेट दूर है. विकेट गिरने के साथ ही लंच ब्रेक हो गया है.  ",
+                   child:Text("${UtfConvertUtils().convert(args.model.cypherDescription)} ",
                        style:TextStyle(color: Colors.black,fontSize: 18)),
                  )
 

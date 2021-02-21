@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_package_plugin1/flutter_package_plugin1.dart';
 import 'package:model_architecture/api/Api.dart';
 import 'package:model_architecture/constantPackage/language/languageEn.dart';
+import 'package:model_architecture/providers/HomeProvider.dart';
 import 'package:model_architecture/providers/LoginProvider.dart';
 import 'package:model_architecture/providers/PostProvider.dart';
 import 'package:model_architecture/providers/SampleProvider.dart';
@@ -20,6 +21,7 @@ import 'file:///D:/git%20main/flutter-modules/model_architecture/lib/api/api_ser
 import 'package:model_architecture/utils/languageDeligate.dart';
 import 'package:path/path.dart';
 import 'package:provider/provider.dart';
+
 import 'providers/PostCreateProvider.dart';
 import 'providers/SearchProvider.dart';
 import 'screens/HomeScreen/HomeScreen.dart';
@@ -43,6 +45,7 @@ void main() async {
 /*   Response resp=await Api().searchPost("32");
   print(resp.data);*/
 
+/*
   String m= utf8.encode("क्या है").toString();
      m=m.replaceAll("[","").replaceAll("]","");
   List <String> lstring = m.split(",");
@@ -51,6 +54,12 @@ void main() async {
   print(lint);
    m= utf8.decode(lint);
   print(m);
+*/
+
+
+
+
+
 
   runApp(
     MultiProvider(
@@ -60,6 +69,7 @@ void main() async {
         ChangeNotifierProvider(create: (ctx) => PostCreateProvider()),
         ChangeNotifierProvider(create: (ctx) => LoginProvider()),
         ChangeNotifierProvider(create: (ctx) => SearchScreenProvider()),
+        ChangeNotifierProvider(create: (ctx) => HomeProvider()),
       ],
       child: MyApp(),
     ),

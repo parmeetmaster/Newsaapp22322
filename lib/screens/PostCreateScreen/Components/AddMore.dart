@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 
 
 class Addmore extends StatefulWidget {
+
+
   @override
   _AddmoreState createState() => _AddmoreState();
 }
@@ -17,7 +19,7 @@ class _AddmoreState extends State<Addmore> {
     final provider=Provider.of<PostCreateProvider>(context);
     return InkWell(
       onTap: (){
-        provider.pickupFile();
+        provider.pickupFile(uploadfiletype.attachment);
 
       },
       child: Container(color:Colors.grey[300]
