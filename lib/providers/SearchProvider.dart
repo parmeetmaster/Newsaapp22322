@@ -13,8 +13,8 @@ class SearchScreenProvider extends ChangeNotifier {
 
    bool searchExpanded = true;
    List<String> listDepartments = [];
-   String fromDate="";
-   String toDate="";
+   String fromDate=null;
+   String toDate=null;
    TextEditingController searchinputController=new TextEditingController();
    String department="Set Department";
    String office="Set Office";
@@ -96,11 +96,15 @@ class SearchScreenProvider extends ChangeNotifier {
   }
 
    UploadFileDetailModel parseString(String attachmentString ){
-     print(attachmentString);
+     try{
+       UploadFileDetailModel m=  UploadFileDetailModel.fromJson(jsonDecode(attachmentString));
+       print("first is${m.attachments[0]}");
+       return m;
+     }catch(e){
+       return null;
 
-     UploadFileDetailModel m=  UploadFileDetailModel.fromJson(jsonDecode(attachmentString));
-     print("first is${m.attachments[0]}");
-     return m;
+     }
+
    }
 
 void setContext(BuildContext mcontext){

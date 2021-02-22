@@ -39,7 +39,7 @@ dependencies:
       ref: master
 
   #update as per need
-  shared_preferences:
+  shared_preferences: ^0.5.12
   percent_indicator: "^2.1.7+2"
   image_picker: ^0.6.7+22
   convert: ^2.1.1

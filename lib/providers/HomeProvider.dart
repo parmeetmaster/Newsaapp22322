@@ -56,9 +56,6 @@ UploadFileDetailModel parseString(String attachmentString ){
 
       }
 
-
-
-
 }
 
 
