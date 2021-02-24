@@ -40,9 +40,9 @@ import 'utils/preference.dart';
 // need to add async
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Preference.load();
   try{
-    await Preference.load();
+
   }catch(e){
     print("SharedPreferences not work");
   }
