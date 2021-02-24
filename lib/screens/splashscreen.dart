@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:model_architecture/constantPackage/constStrings.dart';
+import 'package:model_architecture/utils/preference.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class SplashScreenState extends State<SplashScreen>
   }
 
   void navigationPage() {
-    Navigator.of(context).pushReplacementNamed(SIGN_IN);
+    Navigator.of(context).pushReplacementNamed('/');
   }
 
   @override
@@ -30,11 +31,13 @@ class SplashScreenState extends State<SplashScreen>
     super.initState();
     animationController = new AnimationController(
         vsync: this, duration: new Duration(seconds: 2));
-    animation =
-    new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
-
+    animation = new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
     animation.addListener(() => this.setState(() {}));
     animationController.forward();
+
+
+
+
 
     setState(() {
       _visible = !_visible;

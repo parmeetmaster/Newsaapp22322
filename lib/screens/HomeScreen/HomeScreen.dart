@@ -8,6 +8,7 @@ import 'package:model_architecture/api/Api.dart';
 import 'package:model_architecture/constantPackage/constColors.dart';
 import 'package:model_architecture/constantPackage/language/languageEn.dart';
 import 'package:model_architecture/constantPackage/language/words.dart';
+import 'package:model_architecture/model/signin_model.dart';
 import 'package:model_architecture/model/uploadFileDetailsModel.dart';
 import 'package:model_architecture/providers/HomeProvider.dart';
 import 'package:model_architecture/providers/SampleProvider.dart';
@@ -31,10 +32,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     final provider = Provider.of<HomeProvider>(context);
 
     return Scaffold(
-      drawer: GlobalDrawer(),
+      drawer:  CommonDrawer(),
         appBar: AppBar(
           actions: [
             InkWell(

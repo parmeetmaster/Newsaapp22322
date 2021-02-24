@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 
-class GlobalDrawer extends StatefulWidget {
+class CommonDrawer extends StatefulWidget {
   @override
-  _GlobalDrawerState createState() => _GlobalDrawerState();
+  _CommonDrawerState createState() => _CommonDrawerState();
 }
 
-class _GlobalDrawerState extends State<GlobalDrawer> {
+class _CommonDrawerState extends State<CommonDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -47,7 +47,7 @@ class _GlobalDrawerState extends State<GlobalDrawer> {
           ListTile(
             leading: Icon(Icons.person), title: Text("Login"),
             onTap: () {
-              Navigator.pushNamed(context, '/LoginScreen');
+              Navigator.pushNamed(context, '/SignInPage');
             },
           ),
 

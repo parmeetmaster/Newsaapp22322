@@ -5,9 +5,12 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:model_architecture/api/Api.dart';
+import 'package:model_architecture/constantPackage/constStrings.dart';
 import 'package:model_architecture/model/post_from_server.dart';
+import 'package:model_architecture/model/signin_model.dart';
 import 'package:model_architecture/model/uploadFileDetailsModel.dart';
 import 'package:model_architecture/screens/HomeScreen/Components/PostContainer.dart';
+import 'package:model_architecture/utils/preference.dart';
 
 
 class Transport{
@@ -57,6 +60,8 @@ UploadFileDetailModel parseString(String attachmentString ){
       }
 
 }
+
+
 
 
 

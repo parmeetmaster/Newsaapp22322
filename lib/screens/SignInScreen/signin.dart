@@ -4,6 +4,9 @@ import 'package:model_architecture/Globals/Widgets/custom_shape.dart';
 import 'package:model_architecture/Globals/Widgets/responsive_ui.dart';
 import 'package:model_architecture/Globals/Widgets/textformfield.dart';
 import 'package:model_architecture/constantPackage/constStrings.dart';
+import 'package:model_architecture/model/signin_model.dart';
+import 'package:model_architecture/providers/SignInProvider.dart';
+import 'package:provider/provider.dart';
 
 
 class SignInPage extends StatelessWidget {
@@ -27,21 +30,28 @@ class _SignInScreenState extends State<SignInScreen> {
   double _pixelRatio;
   bool _large;
   bool _medium;
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+
   GlobalKey<FormState> _key = GlobalKey();
 
 
 
   @override
   Widget build(BuildContext context) {
+
+    onsuccessNavigateHome(SignInModel model){
+      Navigator.popAndPushNamed(context, '/',arguments: model);
+    }
+
+   Provider.of<SignInProvider>(context).setOnsuccessSignIn(onsuccessNavigateHome);
+
      _height = MediaQuery.of(context).size.height;
      _width = MediaQuery.of(context).size.width;
      _pixelRatio = MediaQuery.of(context).devicePixelRatio;
      _large =  ResponsiveWidget.isScreenLarge(_width, _pixelRatio);
      _medium =  ResponsiveWidget.isScreenMedium(_width, _pixelRatio);
-    return Material(
-      child: Container(
+    return Scaffold(
+      key: Provider.of<SignInProvider>(context,listen: false).scaffoldkey,
+      body: Container(
         height: _height,
         width: _width,
         padding: EdgeInsets.only(bottom: 5),
@@ -62,6 +72,7 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
+
 
   Widget clipShape() {
     //double height = MediaQuery.of(context).size.height;
@@ -164,7 +175,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget emailTextFormField() {
     return CustomTextField(
       keyboardType: TextInputType.emailAddress,
-      textEditingController: emailController,
+      textEditingController: Provider.of<SignInProvider>(context,listen: false).emailController,
       icon: Icons.email,
       hint: "Email ID",
     );
@@ -174,7 +185,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget passwordTextFormField() {
     return CustomTextField(
       keyboardType: TextInputType.emailAddress,
-      textEditingController: passwordController,
+      textEditingController: Provider.of<SignInProvider>(context,listen: false).passwordController,
       icon: Icons.lock,
       obscureText: true,
       hint: "Password",
@@ -213,13 +224,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return RaisedButton(
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-      onPressed: () {
-          print("Routing to your account");
-          Scaffold
-              .of(context)
-              .showSnackBar(SnackBar(content: Text('Login Successful')));
-
-      },
+      onPressed: Provider.of<SignInProvider>(context,listen: false).performSignIn,
       textColor: Colors.white,
       padding: EdgeInsets.all(0.0),
       child: Container(

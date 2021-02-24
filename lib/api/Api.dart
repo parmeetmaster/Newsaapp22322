@@ -83,6 +83,20 @@ Future<Response>  requestSamplePost(String name,String email,String password,Str
     return dio.post("/search.php",data:await formData);
   }
 
+  Future<Response>  login(
+      {String email,
+        String password}) async {
+    // var map={"postimage":"dasd","data":attachment};
+
+    var formData= FormData.fromMap({
+      "email": email,
+      "password":password,
+    });
+
+
+
+    return dio.post("/login.php",data:await formData);
+  }
 
 
 

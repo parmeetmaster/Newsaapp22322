@@ -13,6 +13,7 @@ import 'package:model_architecture/model/file_placeholder.dart';
 import 'package:model_architecture/model/uploadFileDetailsModel.dart';
 import 'package:model_architecture/screens/PostCreateScreen/Components/AddMore.dart';
 import 'package:model_architecture/screens/PostCreateScreen/Components/Added.dart';
+import 'package:model_architecture/screens/UploadSuccess/SucessScreen.dart';
 import 'package:path/path.dart';
 
 enum uploadfiletype {
@@ -27,7 +28,7 @@ class PostCreateProvider extends ChangeNotifier{
   String radioItem="general";
     double percent=0;
 
-
+BuildContext context;
   File selectedfile;
   Response response;
   String progress;
@@ -127,6 +128,7 @@ notifyListeners();
   Response resp= await Api().uploadGeneralPost(title_controller.text, description_controller.text,UploadFileDetailModel(post: postUrl,attachments: attachmentUrls).toJson(),"2");
  if(resp.statusCode==200){
    resetvariables();
+ Navigator.pushNamed(context,UploadSuccess.classname);
  }
 
 
@@ -144,6 +146,11 @@ notifyListeners();
     radioItem=val;
     notifyListeners();
   }
+
+  void setContext(BuildContext mcontext) {
+    this.context=mcontext;
+  }
+
 
 
 }

@@ -13,9 +13,10 @@ class PostCreateScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<PostCreateProvider>(context);
+    provider.setContext(context);
     return Consumer<PostCreateProvider>(builder: (context, value, child) {
       return Scaffold(
-          drawer: GlobalDrawer(),
+          drawer: CommonDrawer(),
           appBar: AppBar(
             title: Text("Add new post"),
             bottom: PreferredSize(
